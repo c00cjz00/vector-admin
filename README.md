@@ -127,3 +127,14 @@ DATABASE_CONNECTION_STRING="postgresql://vectoradmin:password@host.docker.intern
 INNGEST_SIGNING_KEY="some-random-string"
 ```
 2. `docker-compose up -d --build vector-admin`
+3. To access the full application, visit `http://localhost:3001` in your browser.
+4. Connecting to a Vector Database
+
+**Pinecone**
+Once your organization is connected you will need to put in your Pinecone configuration and keys. Once connected you may see a `Sync Pinecone Data` button on the organization homepage. This indicates there is existing data in your vector database that can be pulled in. If syncing, the time to sync is dependent on how many documents you have embedded in Pinecone. Otherwise, you can just create a workspace and add documents via the UI.
+
+**Chroma** _running locally_
+When trying to connect to a Chroma instance running also on the same machine use `http://host.docker.internal:[CHROMA_PORT]` as the URL to connect with.
+
+Once connected you may see a `Sync Chroma Data` button on the organization homepage. This indicates there is existing data in your vector database that can be pulled in. If syncing, the time to sync is dependent on how many documents you have embedded in Chroma. Otherwise, you can just create a workspace and add documents via the UI.
+
