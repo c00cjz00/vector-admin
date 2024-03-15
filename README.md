@@ -112,3 +112,18 @@ We will only track usage details that help us make product and roadmap decisions
 - Type of job when executed. 
 
 You can verify these claims by finding all locations `Telemetry.sendTelemetry` is called. Additionally these events are written to the output log so you can also see the specific data which was sent - if enabled. No IP or other identifying information is collected. The Telemetry provider is [PostHog](https://posthog.com/) - an open-source telemetry collection service.
+
+
+### Memory
+1. Build docker image from source
+- `git clone git@github.com:Mintplex-Labs/vector-admin.git`
+- `cd vector-admin`
+- `cd docker/`
+- `cp .env.example .env`.
+- Edit `.env` file and update the variables. **please** update all of the following:
+```shell
+JWT_SECRET="some-random-string"
+DATABASE_CONNECTION_STRING="postgresql://vectoradmin:password@host.docker.internal:5433/vdbms" # Valid PG Connection string.
+INNGEST_SIGNING_KEY="some-random-string"
+```
+2. `docker-compose up -d --build vector-admin`
