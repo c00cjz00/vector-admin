@@ -120,18 +120,19 @@ You can verify these claims by finding all locations `Telemetry.sendTelemetry` i
 - `cd vector-admin`
 - `cd docker/`
 - `cp .env.example .env`.
-- Edit `.env` file and update the variables. **please** update all of the following:
+- 編輯 `.env` 檔案並更新變數。請更新以下所有內容：
 ```shell
 JWT_SECRET="some-random-string"
 DATABASE_CONNECTION_STRING="postgresql://vectoradmin:password@host.docker.internal:5433/vdbms" # Valid PG Connection string.
 INNGEST_SIGNING_KEY="some-random-string"
 ```
 2. `docker-compose up -d --build vector-admin`
-3. To access the full application, visit `http://localhost:3001` in your browser.
+3. 要存取完整的應用程序，請http://localhost:3001在瀏覽器中存取。
 4. Connecting to a Vector Database
+要存取完整的應用程序，請http://localhost:3001在瀏覽器中存取。
+連接到向量資料庫
   - **Pinecone**
-Once your organization is connected you will need to put in your Pinecone configuration and keys. Once connected you may see a `Sync Pinecone Data` button on the organization homepage. This indicates there is existing data in your vector database that can be pulled in. If syncing, the time to sync is dependent on how many documents you have embedded in Pinecone. Otherwise, you can just create a workspace and add documents via the UI.
+連接您的組織後，您將需要輸入 Pinecone 配置和金鑰。連接後，您可能會 `Sync Pinecone Data` 在主頁上看到一個按鈕。這表示您的向量資料庫中存在可以提取的現有資料。如果進行同步，同步時間取決於您在 Pinecone 中嵌入的文檔數量。否則，您只需建立一個工作區並透過 UI 新增文件。
   - **Chroma** _running locally_
-When trying to connect to a Chroma instance running also on the same machine use `http://host.docker.internal:[CHROMA_PORT]` as the URL to connect with.
-Once connected you may see a `Sync Chroma Data` button on the organization homepage. This indicates there is existing data in your vector database that can be pulled in. If syncing, the time to sync is dependent on how many documents you have embedded in Chroma. Otherwise, you can just create a workspace and add documents via the UI.
+本機執行的Chroma 當嘗試連線到也在同一台電腦上執行的 Chroma 實例時，請使用 `http://host.docker.internal:[CHROMA_PORT]` 作為要連線的 URL。連接後，您可能會Sync Chroma Data在組織主頁上看到一個按鈕。這表示您的向量資料庫中存在可以提取的現有資料。如果進行同步，同步時間取決於您在 Chroma 中嵌入的文件數量。否則，您只需建立一個工作區並透過 UI 新增文件。
 
